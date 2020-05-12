@@ -1,11 +1,20 @@
 #include <QAndroidService>
-//#include <QApplication>
+#include <QApplication>
 #include <QDebug>
 
 int main(int argc, char *argv[])
 {
-    QAndroidService a(argc, argv);
-//    QApplication a(argc, argv);
-    qCritical()<<"QAndroidService";
-    return a.exec();
+  if (argc <= 1) {
+      // code to handle main activity execution
+      QApplication app(argc, argv);
+      qWarning()<<"main activity execution";
+      return app.exec();
+  } else if (argc > 1 && strcmp(argv[1], "-service") == 0) {
+      qWarning() << "Service starting with from the same .so file";
+      QAndroidService app(argc, argv);
+      return app.exec();
+  } else {
+      qWarning() << "Unrecognized command line argument";
+      return -1;
+  }
 }

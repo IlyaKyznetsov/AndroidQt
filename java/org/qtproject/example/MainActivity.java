@@ -5,16 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.View;
-import android.app.Activity;
 import android.os.Bundle;
 
-import org.qtproject.qt5.android.bindings.QtActivity;
+import android.app.Activity;
+
+import android.util.Log;
 
 public class MainActivity extends Activity {
-//public class MainActivity extends QtActivity {
-    final String TAG="MainActivity DF";
+    static final String TAG="MainActivity DF";
 
     @Override
     public void onCreate(Bundle savedInstanceState)
