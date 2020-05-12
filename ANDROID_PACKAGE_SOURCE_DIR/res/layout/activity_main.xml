@@ -31,4 +31,12 @@
         android:layout_gravity="center_horizontal"
         android:text="Start Service"
         android:onClick="onServiceStart"/>
+
+    <Button
+        android:id="@+id/StopService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Stop Service"
+        android:onClick="onServiceStop"/>
 </LinearLayout>

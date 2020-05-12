@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             // Код, выполняемый при связи со службой
-            Log.d(TAG,"onServiceConnected(ComponentName componentName, IBinder iBinder)");
+            Log.i(TAG,"onServiceConnected(ComponentName componentName, IBinder iBinder)");
 
             MainService.ServiceBinder binder = (MainService.ServiceBinder)iBinder;
             mainService = binder.getServiceBinder();
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
             // Код, выполняемый при разрыве связи со службой
-            Log.d(TAG,"onServiceDisconnected(ComponentName componentName)");
+            Log.i(TAG,"onServiceDisconnected(ComponentName componentName)");
             bound = false;
         }
     };
@@ -49,14 +49,14 @@ public class MainActivity extends Activity {
 
     public void onBindService(View view)
     {
-        Log.d(TAG,"onBindService(View view)");
+        Log.i(TAG,"onBindService(View view)");
         Intent intent = new Intent(this, MainService.class);
         bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     public void onUnBindService(View view)
     {
-        Log.d(TAG,"onUnBindService(View view)");
+        Log.i(TAG,"onUnBindService(View view)");
         if(bound)
         {
             unbindService(connection);
@@ -65,9 +65,12 @@ public class MainActivity extends Activity {
     }
 
     public void onServiceStart(View view) {
-        Log.d(TAG,"onServiceStart()");
-//        Intent intent = new Intent(this, MainService.class);
-//        startService(intent);
-        MainService.startQtAndroidService(this);
+        Log.i(TAG,"onServiceStart()");
+        MainService.startQtService(this);
+    }
+
+    public void onServiceStop(View view) {
+        Log.i(TAG,"onServiceStop()");
+        MainService.stopQtService(this);
     }
 }

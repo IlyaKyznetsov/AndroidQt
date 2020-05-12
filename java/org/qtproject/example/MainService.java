@@ -1,5 +1,7 @@
 package org.qtproject.example;
 
+import org.qtproject.qt5.android.bindings.*;
+
 // https://doc-snapshots.qt.io/qt5-5.15/android-services.html
 import org.qtproject.qt5.android.bindings.QtService;
 // Java Service
@@ -13,11 +15,17 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 public class MainService extends QtService {
-    public static void startQtAndroidService(Context context) {
-            context.startService(new Intent(context, MainService.class));
+    private static final String TAG="MainService DF";
+
+    public static void startQtService(Context context) {
+        Log.i(TAG, "about to start");
+        context.startService(new Intent(context, MainService.class));
     }
 
-    private static final String TAG="MainService DF";
+    public static void stopQtService(Context context) {
+        Log.i(TAG, "about to stop");
+        context.stopService(new Intent(context, MainService.class));
+    }
 
       @Override
       public void onCreate() {
@@ -54,11 +62,9 @@ public class MainService extends QtService {
       public IBinder onBind(Intent intent)
       {
        Log.i(TAG, "onBind(intent)");
-//          QtApplication.InvokeResult res = QtApplication.invokeDelegate(intent);
-//          if (res.invoked)
-//              return (IBinder)res.methodReturns;
-//          else
-//              return null;
+       QtApplication.InvokeResult res = QtApplication.invokeDelegate(intent);
+       Log.i(TAG,Boolean.toString(res.invoked));
+
         return super.onBind(intent);
       }
 
