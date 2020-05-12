@@ -1,0 +1,73 @@
+package org.qtproject.example;
+
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.util.Log;
+import android.view.View;
+import android.app.Activity;
+import android.os.Bundle;
+
+import org.qtproject.qt5.android.bindings.QtActivity;
+
+public class MainActivity extends Activity {
+//public class MainActivity extends QtActivity {
+    final String TAG="MainActivity DF";
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    private MainService mainService;
+    private boolean bound = false;
+
+    // Связывание с службой
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            // Код, выполняемый при связи со службой
+            Log.d(TAG,"onServiceConnected(ComponentName componentName, IBinder iBinder)");
+
+            MainService.ServiceBinder binder = (MainService.ServiceBinder)iBinder;
+            mainService = binder.getServiceBinder();
+            bound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            // Код, выполняемый при разрыве связи со службой
+            Log.d(TAG,"onServiceDisconnected(ComponentName componentName)");
+            bound = false;
+        }
+    };
+
+
+    public void onBindService(View view)
+    {
+        Log.d(TAG,"onBindService(View view)");
+        Intent intent = new Intent(this, MainService.class);
+        bindService(intent, connection, Context.BIND_AUTO_CREATE);
+    }
+
+    public void onUnBindService(View view)
+    {
+        Log.d(TAG,"onUnBindService(View view)");
+        if(bound)
+        {
+            unbindService(connection);
+            bound = false;
+        }
+    }
+
+    public void onServiceStart(View view) {
+        Log.d(TAG,"onServiceStart()");
+//        Intent intent = new Intent(this, MainService.class);
+//        startService(intent);
+        MainService.startQtAndroidService(this);
+    }
+}
