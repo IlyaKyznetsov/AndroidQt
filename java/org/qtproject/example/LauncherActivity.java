@@ -23,4 +23,10 @@ public class LauncherActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainQtActivity.class);
         startActivity(intent);
     }
+
+    public void onStartService(View view) {
+        Intent intent = new Intent(this, DelayedMessageService.class);
+        intent.putExtra(DelayedMessageService.EXTRA_MESSAGE, "Notification text");
+        startService(intent);
+    }
 }

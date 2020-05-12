@@ -93,6 +93,11 @@
         <!-- extract android style -->
     </activity>
 
+    <service
+        android:name=".DelayedMessageService"
+        android:exported="false">
+    </service>
+
 
     <service
             android:name=".MainService"

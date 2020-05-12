@@ -73,4 +73,6 @@ ANDROID_JAVA_SOURCES.path = /java/$${PACKAGE}
 ANDROID_JAVA_SOURCES.files = $$files($$PWD/java/$${PACKAGE}/*.java)
 INSTALLS += ANDROID_JAVA_SOURCES
 
+OTHER_FILES += $$OUT_PWD/android-build/AndroidManifest.xml
+
 }
