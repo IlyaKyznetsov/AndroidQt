@@ -50,6 +50,7 @@ OTHER_FILES += \
     ANDROID_PACKAGE_SOURCE_DIR/res/mipmap-xxxhdpi/ic_launcher.png \
     ANDROID_PACKAGE_SOURCE_DIR/res/mipmap-xxxhdpi/ic_launcher_round.png \
     ANDROID_PACKAGE_SOURCE_DIR/res/layout/activity_main.xml \
+    ANDROID_PACKAGE_SOURCE_DIR/res/layout/activity_main_qt.xml \
     ANDROID_PACKAGE_SOURCE_DIR/res/mipmap-xxhdpi/ic_launcher.png \
     ANDROID_PACKAGE_SOURCE_DIR/res/mipmap-xxhdpi/ic_launcher_round.png \
     ANDROID_PACKAGE_SOURCE_DIR/res/mipmap-xhdpi/ic_launcher.png \

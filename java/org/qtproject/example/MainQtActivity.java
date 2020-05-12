@@ -19,7 +19,7 @@ public class MainQtActivity extends QtActivity {
     public void onCreate(Bundle bundle) {
         Log.i(TAG, "onCreate()");
         super.onCreate(bundle);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_qt);
     }
 
     @Override
