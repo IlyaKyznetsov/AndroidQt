@@ -15,6 +15,11 @@ import android.util.Log;
 public class MainQtActivity extends QtActivity {
     static final String TAG="MainQtActivity DF";
 
+    public void onLauncherActivity(View view) {
+        Intent intent = new Intent(this, LauncherActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onCreate(Bundle bundle) {
         Log.i(TAG, "onCreate()");
@@ -58,45 +63,44 @@ public class MainQtActivity extends QtActivity {
         MainService.stopQtService(this);
     }
 
-private MainService mainService;
-private boolean bound = false;
+    private MainService mainService;
+    private boolean bound = false;
 
-// Связывание с службой
-private ServiceConnection connection = new ServiceConnection() {
-    @Override
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        // Код, выполняемый при связи со службой
-        Log.i(TAG,"onServiceConnected(ComponentName componentName, IBinder iBinder)");
+    // Связывание с службой
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            // Код, выполняемый при связи со службой
+            Log.i(TAG,"onServiceConnected(ComponentName componentName, IBinder iBinder)");
 
-        MainService.ServiceBinder binder = (MainService.ServiceBinder)iBinder;
-        mainService = binder.getServiceBinder();
-        bound = true;
-    }
+            MainService.ServiceBinder binder = (MainService.ServiceBinder)iBinder;
+            mainService = binder.getServiceBinder();
+            bound = true;
+        }
 
-    @Override
-    public void onServiceDisconnected(ComponentName componentName) {
-        // Код, выполняемый при разрыве связи со службой
-        Log.i(TAG,"onServiceDisconnected(ComponentName componentName)");
-        bound = false;
-    }
-};
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            // Код, выполняемый при разрыве связи со службой
+            Log.i(TAG,"onServiceDisconnected(ComponentName componentName)");
+            bound = false;
+        }
+    };
 
 
-public void onBindService(View view)
-{
-    Log.i(TAG,"onBindService(View view)");
-    Intent intent = new Intent(this, MainService.class);
-    bindService(intent, connection, Context.BIND_AUTO_CREATE);
-}
-
-public void onUnBindService(View view)
-{
-    Log.i(TAG,"onUnBindService(View view)");
-    if(bound)
+    public void onBindService(View view)
     {
-        unbindService(connection);
-        bound = false;
+        Log.i(TAG,"onBindService(View view)");
+        Intent intent = new Intent(this, MainService.class);
+        bindService(intent, connection, Context.BIND_AUTO_CREATE);
+    }
+
+    public void onUnBindService(View view)
+    {
+        Log.i(TAG,"onUnBindService(View view)");
+        if(bound)
+        {
+            unbindService(connection);
+            bound = false;
+        }
     }
 }
-}
-

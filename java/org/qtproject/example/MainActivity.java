@@ -15,6 +15,11 @@ import android.util.Log;
 public class MainActivity extends Activity {
     static final String TAG="MainActivity DF";
 
+    public void onLauncherActivity(View view) {
+        Intent intent = new Intent(this, LauncherActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {

@@ -26,6 +26,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
 
+    <activity
+        android:name=".LauncherActivity"
+        android:label="Android Launcher Activity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+    </activity>
+
+    <activity
+        android:name=".MainActivity"
+        android:label="Android Activity">
+    </activity>
 
     <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
               android:name=".MainQtActivity"
@@ -80,17 +93,6 @@
         <!-- extract android style -->
     </activity>
 
-
-<activity
-    android:name=".MainActivity"
-    android:label="Android Activity">
-    <!--
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-    </intent-filter>
-    -->
-</activity>
 
     <service
             android:name=".MainService"
