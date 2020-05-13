@@ -69,7 +69,7 @@ OTHER_FILES += \
     ANDROID_PACKAGE_SOURCE_DIR/res/drawable/ic_launcher_background.xml
 
 PACKAGE=org/qtproject/example
-ANDROID_JAVA_SOURCES.path = /java/$${PACKAGE}
+ANDROID_JAVA_SOURCES.path = $$PWD/java/$${PACKAGE}
 ANDROID_JAVA_SOURCES.files = $$files($$PWD/java/$${PACKAGE}/*.java)
 INSTALLS += ANDROID_JAVA_SOURCES
 
