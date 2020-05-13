@@ -69,8 +69,10 @@ OTHER_FILES += \
     ANDROID_PACKAGE_SOURCE_DIR/res/drawable/ic_launcher_background.xml
 
 PACKAGE=org/qtproject/example
-ANDROID_JAVA_SOURCES.path = $$PWD/java/$${PACKAGE}
+ANDROID_JAVA_SOURCES.path = /java/$${PACKAGE}
 ANDROID_JAVA_SOURCES.files = $$files($$PWD/java/$${PACKAGE}/*.java)
+message($$ANDROID_JAVA_SOURCES.path)
+message($$ANDROID_JAVA_SOURCES.files)
 INSTALLS += ANDROID_JAVA_SOURCES
 
 OTHER_FILES += $$OUT_PWD/android-build/AndroidManifest.xml

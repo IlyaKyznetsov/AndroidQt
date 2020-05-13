@@ -31,6 +31,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
+    ndkVersion "21.1.6352462"
+
 
     defaultConfig {
             applicationId "org.qtproject.example"
@@ -41,12 +43,13 @@ android {
 
 //            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//    }
+
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
