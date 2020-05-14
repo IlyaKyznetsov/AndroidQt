@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.app.ActivityManager.RunningServiceInfo;
+import java.util.List;
 
 import org.qtproject.qt5.android.bindings.QtService;
 import org.qtproject.qt5.android.bindings.QtActivity;
@@ -13,7 +17,7 @@ import android.util.Log;
 
 public class LauncherActivity extends AppCompatActivity {
 
-    static final String TAG="LauncherActivity";
+    static final String TAG="qtLauncherActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,4 +68,14 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
 
+    public void onServices(View view) {
+        ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningServiceInfo> services = am.getRunningServices(Integer.MAX_VALUE);
+        Log.i(TAG,"qt Get services size:"+services.size());
+        for (ActivityManager.RunningServiceInfo serviceInfo : services) {
+            String serviceName = serviceInfo.service.getClassName();
+            Log.i(TAG,"qt:"+serviceName);
+         }
+
+    }
 }
