@@ -56,4 +56,18 @@
         android:layout_gravity="center_horizontal"
         android:text="Stop Service"
         android:onClick="onServiceStop"/>
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:text="Start QtService"
+    android:onClick="onStartQtService"/>
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:text="Stop QtService"
+    android:onClick="onStopQtService"/>
 </LinearLayout>

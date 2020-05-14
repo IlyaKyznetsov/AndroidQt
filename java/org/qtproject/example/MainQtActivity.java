@@ -9,6 +9,7 @@ import android.view.View;
 import android.os.Bundle;
 
 import org.qtproject.qt5.android.bindings.QtActivity;
+import org.qtproject.qt5.android.bindings.QtService;
 
 import android.util.Log;
 
@@ -18,6 +19,18 @@ public class MainQtActivity extends QtActivity {
     public void onLauncherActivity(View view) {
         Intent intent = new Intent(this, LauncherActivity.class);
         startActivity(intent);
+    }
+
+    public void onStartQtService(View view) {
+        Log.i(TAG,"onStartQtService");
+        Intent intent = new Intent(this, QtService.class);
+        startService(intent);
+    }
+
+    public void onStopQtService(View view) {
+        Log.i(TAG,"onStopQtService");
+        Intent intent = new Intent(this, QtService.class);
+        stopService(intent);
     }
 
     @Override
