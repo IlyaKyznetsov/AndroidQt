@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Global.cpp \
     main.cpp
 
 # Default rules for deployment.
@@ -79,7 +80,9 @@ PACKAGE=org/qtproject/example
 # On Windows ########################################################
 ANDROID_JAVA_DIR = $$PWD/java/$${PACKAGE}
 OTHER_FILES += \
-    $$ANDROID_JAVA_DIR/LauncherActivity.java
+    $$ANDROID_JAVA_DIR/LauncherActivity.java \
+    $$ANDROID_JAVA_DIR/CoreAgentService.java \
+    $$ANDROID_JAVA_DIR/DeliveryAgentService.java
 #message( :::: ANDROID_JAVA_DIR:  $$ANDROID_JAVA_DIR)
 ANDROID_JAVA_SOURCES.path = /java/$${PACKAGE}
 ANDROID_JAVA_SOURCES.files = $$files($$PWD/java/$${PACKAGE}/*.java)
@@ -90,3 +93,6 @@ INSTALLS += ANDROID_JAVA_SOURCES
 OTHER_FILES += $$OUT_PWD/android-build/AndroidManifest.xml
 
 }
+
+HEADERS += \
+    Global.h
