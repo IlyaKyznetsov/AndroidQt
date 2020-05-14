@@ -6,7 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import org.qtproject.qt5.android.bindings.QtService;
+
+import android.util.Log;
+
 public class LauncherActivity extends AppCompatActivity {
+
+    static final String TAG="LauncherActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,19 +20,16 @@ public class LauncherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launcher);
     }
 
-    public void onActivityAndroid(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void onActivityQt(View view) {
-        Intent intent = new Intent(this, MainQtActivity.class);
-        startActivity(intent);
-    }
-
-    public void onStartService(View view) {
-        Intent intent = new Intent(this, DelayedMessageService.class);
-        intent.putExtra(DelayedMessageService.EXTRA_MESSAGE, "Notification text");
+    public void onStartQtService(View view) {
+        Log.i(TAG,"onStartQtService");
+        Intent intent = new Intent(this, QtService.class);
         startService(intent);
     }
+
+    public void onStopQtService(View view) {
+        Log.i(TAG,"onStopQtService");
+        Intent intent = new Intent(this, QtService.class);
+        stopService(intent);
+    }
+
 }

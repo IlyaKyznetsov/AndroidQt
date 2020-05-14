@@ -1,4 +1,5 @@
-QT       += core gui
+QT       += core
+#QT       += gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -78,11 +79,7 @@ PACKAGE=org/qtproject/example
 # On Windows ########################################################
 ANDROID_JAVA_DIR = $$PWD/java/$${PACKAGE}
 OTHER_FILES += \
-    $$ANDROID_JAVA_DIR/MainQtActivity.java \
-    $$ANDROID_JAVA_DIR/MainService.java \
-    $$ANDROID_JAVA_DIR/MainActivity.java \
-    $$ANDROID_JAVA_DIR/LauncherActivity.java \
-    $$ANDROID_JAVA_DIR/DelayedMessageService.java
+    $$ANDROID_JAVA_DIR/LauncherActivity.java
 #message( :::: ANDROID_JAVA_DIR:  $$ANDROID_JAVA_DIR)
 ANDROID_JAVA_SOURCES.path = /java/$${PACKAGE}
 ANDROID_JAVA_SOURCES.files = $$files($$PWD/java/$${PACKAGE}/*.java)

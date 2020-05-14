@@ -8,26 +8,17 @@
     android:orientation="vertical"
     tools:context=".LauncherActivity">
 
-    <Button
-        android:id="@+id/ActivityAndroid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Activity Android"
-        android:onClick="onActivityAndroid"/>
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:text="Start QtService"
+    android:onClick="onStartQtService"/>
 
-    <Button
-        android:id="@+id/ActivityQt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Activity Qt"
-        android:onClick="onActivityQt"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Notification from Service"
-        android:onClick="onStartService"/>
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:text="Stop QtService"
+    android:onClick="onStopQtService"/>
 </LinearLayout>
