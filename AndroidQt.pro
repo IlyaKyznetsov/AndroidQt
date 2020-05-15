@@ -1,5 +1,5 @@
-QT += core
-QT += widgets
+android: {
+QT += core widgets androidextras
 
 CONFIG += c++11
 
@@ -13,23 +13,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
-SOURCES += \
-    Global.cpp \
-    main.cpp
-
-HEADERS += \
-    Global.h
-
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
-
-android: {
-
-QT += androidextras
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/ANDROID_PACKAGE_SOURCE_DIR
 # Gradle settings
@@ -78,5 +61,13 @@ ANDROID_JAVA_SOURCES.path = /java/$${PACKAGE}
 ANDROID_JAVA_SOURCES.files = $$files($$PWD/java/$${PACKAGE}/*.java)
 INSTALLS += ANDROID_JAVA_SOURCES
 OTHER_FILES += $$ANDROID_JAVA_SOURCES.files
+
 OTHER_FILES += $$TOP_BUILD_DIR/android-build/AndroidManifest.xml
+
+HEADERS += \
+    Global.h
+
+SOURCES += \
+    Global.cpp \
+    main.cpp
 }

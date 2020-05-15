@@ -1,5 +1,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    AndroidQt.pro  \
-    apart
+    AndroidQt.pro \
+    CoreAgent \
+    DeliveryAgent \
+    DriverControl
