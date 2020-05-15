@@ -82,7 +82,8 @@ ANDROID_JAVA_DIR = $$PWD/java/$${PACKAGE}
 OTHER_FILES += \
     $$ANDROID_JAVA_DIR/LauncherActivity.java \
     $$ANDROID_JAVA_DIR/CoreAgentService.java \
-    $$ANDROID_JAVA_DIR/DeliveryAgentService.java
+    $$ANDROID_JAVA_DIR/DeliveryAgentService.java \
+    $$ANDROID_JAVA_DIR/ApartService.java
 #message( :::: ANDROID_JAVA_DIR:  $$ANDROID_JAVA_DIR)
 ANDROID_JAVA_SOURCES.path = /java/$${PACKAGE}
 ANDROID_JAVA_SOURCES.files = $$files($$PWD/java/$${PACKAGE}/*.java)

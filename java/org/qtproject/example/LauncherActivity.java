@@ -67,6 +67,12 @@ public class LauncherActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onStartApart(View view) {
+
+        Log.i(TAG,"onStartApart");
+        Intent intent = new Intent(this, ApartService.class);
+        startService(intent);
+    }
 
     public void onServices(View view) {
         ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
