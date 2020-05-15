@@ -1,4 +1,7 @@
-QT += gui
+QT = widgets
+android: {
+    QT += androidextras
+}
 
 TEMPLATE = lib
 DEFINES += DRIVERCONTROL_LIBRARY

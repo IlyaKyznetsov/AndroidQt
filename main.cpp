@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
   Logging("### Arguments ###");
   for (int i = 0; i != argc; ++i)
     D(argv[i]);
-
+/*
   if (argc > 1)
   {
     const QString name(argv[1]);
@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
   }
 
 TERMINATE_APPLICATION:
+*/
   qWarning() << "Unrecognized command line argument";
   return -1;
 }

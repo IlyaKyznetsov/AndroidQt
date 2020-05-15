@@ -27,7 +27,7 @@
 <!-- DriverControl QtActivity -->
     <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
               android:name="org.qtproject.qt5.android.bindings.QtActivity"
-              android:label="-- %%INSERT_APP_NAME%% --"
+              android:label="DriverControl"
               android:screenOrientation="unspecified"
               android:launchMode="singleTop">
         <intent-filter>
@@ -37,7 +37,8 @@
 
         <meta-data android:name="android.app.arguments" android:value="driver_control"/>
 
-        <meta-data android:name="android.app.lib_name" android:value="-- %%INSERT_APP_LIB_NAME%% --"/>
+        <meta-data android:name="android.app.lib_name" android:value="DriverControl"/>
+
         <meta-data android:name="android.app.qt_sources_resource_id" android:resource="@array/qt_sources"/>
         <meta-data android:name="android.app.repository" android:value="default"/>
         <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>
