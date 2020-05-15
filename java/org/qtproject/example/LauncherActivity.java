@@ -68,20 +68,24 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     public void onStartApart(View view) {
-
         Log.i(TAG,"onStartApart");
         Intent intent = new Intent(this, ApartService.class);
         startService(intent);
     }
 
+    public void onStopApart(View view) {
+        Log.i(TAG,"onStopApartService");
+        Intent intent = new Intent(this, ApartService.class);
+        stopService(intent);
+    }
+
     public void onServices(View view) {
         ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningServiceInfo> services = am.getRunningServices(Integer.MAX_VALUE);
-        Log.i(TAG,"qt Get services size:"+services.size());
         for (ActivityManager.RunningServiceInfo serviceInfo : services) {
             String serviceName = serviceInfo.service.getClassName();
             Log.i(TAG,"qt:"+serviceName);
          }
-
+        Log.i(TAG,"qt Get services size:"+services.size());
     }
 }
