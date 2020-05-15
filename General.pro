@@ -1,5 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    AndroidQt.pro  \
-    apart
+    cpp/AndroidQt  \
+    cpp/apart

@@ -1,8 +1,5 @@
-QT -= gui
-
 TEMPLATE = lib
 DEFINES += APART_LIBRARY
-QT += widgets
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -25,11 +22,10 @@ HEADERS += \
     Apart.h
 
 # Default rules for deployment.
-unix {
+unix:!android: {
+    QT += core
     target.path = /usr/lib
-}
-!isEmpty(target.path): INSTALLS += target
-android: {
-
-QT += androidextras
+    !isEmpty(target.path): INSTALLS += target
+} else: android {
+    QT += androidextras
 }
