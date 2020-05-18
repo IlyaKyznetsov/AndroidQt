@@ -12,56 +12,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:text="Start CoreAgent"
-    android:onClick="onStartCoreAgent"/>
+    android:text="onBindAgents"
+    android:onClick="onBindAgents"/>
 
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:text="Stop CoreAgent"
-    android:onClick="onStopCoreAgent"/>
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:text="Start DeliveryAgent"
-    android:onClick="onStartDeliveryAgent"/>
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:text="Stop DeliveryAgent"
-    android:onClick="onStopDeliveryAgent"/>
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:text="Start DriverControl"
-    android:onClick="onStartDriverControl"/>
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:text="Start Apart"
-    android:onClick="onStartApart"/>
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:text="Stop Apart"
-    android:onClick="onStopApart"/>
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:text="List of Services"
-    android:onClick="onServices"/>
+    android:text="onUnbindAgents"
+    android:onClick="onUnbindAgents"/>
 
 </LinearLayout>

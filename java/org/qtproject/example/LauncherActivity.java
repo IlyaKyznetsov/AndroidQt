@@ -18,18 +18,17 @@ import java.util.List;
 
 public class LauncherActivity extends Activity {
 
-    static final String TAG="qtLauncherActivity";
+    static final String TAG="qt_LauncherActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
 
-        Intent intentCoreAgentService = new Intent(this, CoreAgentService.class);
-        bindService(intentCoreAgentService, connectionCoreAgentService, Context.BIND_AUTO_CREATE);
+        Log.i(TAG,"onCreate(Bundle savedInstanceState)");
 
-        Intent intentDeliveryAgentService = new Intent(this, DeliveryAgentService.class);
-        bindService(intentDeliveryAgentService, connectionDeliveryAgentService, Context.BIND_AUTO_CREATE);
+        //onBindAgents();
+
     }
 
     // ----------------------------------------------------------------------------
@@ -45,8 +44,10 @@ public class LauncherActivity extends Activity {
             // Код, выполняемый при связи со службой
             Log.i(TAG,"connectionCoreAgentService onServiceConnected(ComponentName componentName, IBinder iBinder)");
             CoreAgentService.ServiceBinder binder = (CoreAgentService.ServiceBinder)service;
-            coreAgentService = binder.getServiceBinder();
-            coreAgentServiceBound = true;
+            if(binder!=null) {
+                coreAgentService = binder.getServiceBinder();
+                coreAgentServiceBound = true;
+            }
         }
 
         @Override
@@ -62,97 +63,28 @@ public class LauncherActivity extends Activity {
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.i(TAG,"connectionDeliveryAgentService onServiceConnected(ComponentName componentName, IBinder iBinder)");
             DeliveryAgentService.ServiceBinder binder = (DeliveryAgentService.ServiceBinder)service;
-            deliveryAgentService = binder.getServiceBinder();
-            deliveryAgentServiceBound = true;
+            if(binder!=null) {
+                deliveryAgentService = binder.getServiceBinder();
+                deliveryAgentServiceBound = true;
+            }
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
             Log.i(TAG,"connectionDeliveryAgentService onServiceDisconnected(ComponentName componentName)");
-            deliveryAgentServiceBound = false;
         }
     };
-    // ----------------------------------------------------------------------------
 
+    public void onBindAgents(View view) {
+        Intent intentCoreAgentService = new Intent(this, CoreAgentService.class);
+        bindService(intentCoreAgentService, connectionCoreAgentService, Context.BIND_AUTO_CREATE);
 
-//    public void onBindService(View view)
-//    {
-//        Log.i(TAG,"onBindService(View view)");
-//        Intent intent = new Intent(this, MainService.class);
-//        bindService(intent, connection, Context.BIND_AUTO_CREATE);
-//    }
-//
-//    public void onUnBindService(View view)
-//    {
-//        Log.i(TAG,"onUnBindService(View view)");
-//        if(bound)
-//        {
-//            unbindService(connection);
-//            bound = false;
-//        }
-//    }
-
-//    public void onStartQtService(View view) {
-//        Log.i(TAG,"onStartQtService");
-//        Intent intent = new Intent(this, QtService.class);
-//        startService(intent);
-//    }
-
-//    public void onStopQtService(View view) {
-//        Log.i(TAG,"onStopQtService");
-//        Intent intent = new Intent(this, QtService.class);
-//        stopService(intent);
-//    }
-
-    public void onStartDeliveryAgent(View view) {
-        Log.i(TAG,"onStartDeliveryAgent");
-        Intent intent = new Intent(this, DeliveryAgentService.class);
-        startService(intent);
+        Intent intentDeliveryAgentService = new Intent(this, DeliveryAgentService.class);
+        bindService(intentDeliveryAgentService, connectionDeliveryAgentService, Context.BIND_AUTO_CREATE);
     }
 
-    public void onStopDeliveryAgent(View view) {
-        Log.i(TAG,"onStopDeliveryAgent");
-        Intent intent = new Intent(this, DeliveryAgentService.class);
-        stopService(intent);
-    }
-
-    public void onStartCoreAgent(View view) {
-        Log.i(TAG,"onStartCoreAgent");
-        Intent intent = new Intent(this, CoreAgentService.class);
-        startService(intent);
-    }
-
-    public void onStopCoreAgent(View view) {
-        Log.i(TAG,"onStopCoreAgent");
-        Intent intent = new Intent(this, CoreAgentService.class);
-        stopService(intent);
-    }
-
-    public void onStartDriverControl(View view) {
-        Log.i(TAG,"onStartDriverControl");
-        Intent intent = new Intent(this, QtActivity.class);
-        startActivity(intent);
-    }
-
-    public void onStartApart(View view) {
-        Log.i(TAG,"onStartApart");
-        Intent intent = new Intent(this, ApartService.class);
-        startService(intent);
-    }
-
-    public void onStopApart(View view) {
-        Log.i(TAG,"onStopApartService");
-        Intent intent = new Intent(this, ApartService.class);
-        stopService(intent);
-    }
-
-    public void onServices(View view) {
-        ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningServiceInfo> services = am.getRunningServices(Integer.MAX_VALUE);
-        for (ActivityManager.RunningServiceInfo serviceInfo : services) {
-            String serviceName = serviceInfo.service.getClassName();
-            Log.i(TAG,"qt:"+serviceName);
-         }
-        Log.i(TAG,"qt Get services size:"+services.size());
+    public void onUnbindAgents(View view) {
+        unbindService(connectionCoreAgentService);
+        unbindService(connectionDeliveryAgentService);
     }
 }

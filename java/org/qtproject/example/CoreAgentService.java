@@ -23,10 +23,15 @@ public class CoreAgentService extends QtService {
         Log.i(TAG, "onDestroy()");
     }
 
+    IBinder _binder;
     @Override
     public IBinder onBind(Intent intent) {
         Log.i(TAG, "onBind(Intent)");
-        return super.onBind(intent);
+//        return super.onBind(intent);
+        IBinder binder = super.onBind(intent);
+        if(null != binder)
+            _binder=binder;
+        return _binder;
     }
 
     @Override
@@ -53,6 +58,4 @@ public class CoreAgentService extends QtService {
             return CoreAgentService.this;
         }
     }
-    private final IBinder binder = new ServiceBinder();
-
 }

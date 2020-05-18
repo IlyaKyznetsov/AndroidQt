@@ -1,9 +1,9 @@
-#include <QAndroidService>
 #include <QDebug>
+#include <DeliveryAgent.h>
 
 int main(int argc, char *argv[])
 {
-    QAndroidService app(argc,argv);
+    DeliveryAgent app(argc,argv);
     qWarning()<<"++++++++ DeliveryAgent ++++++++";
     return app.exec();
 }

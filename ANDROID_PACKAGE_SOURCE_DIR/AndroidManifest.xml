@@ -70,6 +70,7 @@
 <!-- CoreAgent QtService -->
     <service
         android:process=":core_agent"
+        android:isolatedProcess="true"
         android:name=".CoreAgentService">
 
       <!-- Application arguments. Uncomment the following line to use the same main function. -->
@@ -114,6 +115,7 @@
 <!-- DeliveryAgent QtService -->
     <service
         android:process=":delivery_agent"
+        android:isolatedProcess="true"
         android:name=".DeliveryAgentService">
 
       <!-- Application arguments. Uncomment the following line to use the same main function. -->

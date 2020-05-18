@@ -2,11 +2,23 @@
 #define DELIVERYAGENT_H
 
 #include "DeliveryAgent_global.h"
+#include <QAndroidIntent>
+#include <QAndroidService>
 
-class DELIVERYAGENT_EXPORT DeliveryAgent
+class DELIVERYAGENT_EXPORT DeliveryAgent : public QAndroidService
 {
 public:
-    DeliveryAgent();
+#ifndef Q_QDOC
+  DeliveryAgent(int &argc, char **argv, int flags = ApplicationFlags);
+  DeliveryAgent(int &argc, char **argv, const std::function<QAndroidBinder *(const QAndroidIntent &intent)> &binder,
+                int flags = ApplicationFlags);
+#else
+  DeliveryAgent(int &argc, char **argv);
+  DeliveryAgent(int &argc, char **argv, const std::function<QAndroidBinder *(const QAndroidIntent &intent)> &binder);
+#endif
+
+  virtual ~DeliveryAgent();
+  virtual QAndroidBinder *onBind(const QAndroidIntent &intent);
 };
 
 #endif // DELIVERYAGENT_H
