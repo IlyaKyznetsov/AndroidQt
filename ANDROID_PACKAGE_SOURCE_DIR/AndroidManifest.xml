@@ -70,8 +70,7 @@
 <!-- CoreAgent QtService -->
     <service
         android:process=":core_agent"
-        android:name=".CoreAgentService"
-        android:exported="true">
+        android:name=".CoreAgentService">
 
       <!-- Application arguments. Uncomment the following line to use the same main function. -->
       <meta-data android:name="android.app.arguments" android:value="core_agent"/>
@@ -115,8 +114,7 @@
 <!-- DeliveryAgent QtService -->
     <service
         android:process=":delivery_agent"
-        android:name=".DeliveryAgentService"
-        android:exported="true">
+        android:name=".DeliveryAgentService">
 
       <!-- Application arguments. Uncomment the following line to use the same main function. -->
       <meta-data android:name="android.app.arguments" android:value="delivery_agent"/>
@@ -160,8 +158,7 @@
     <!--Apart  QtService -->
         <service
             android:process=":apart.kuf_agent"
-            android:name=".ApartService"
-            android:exported="true">
+            android:name=".ApartService">
 
           <!-- Application arguments. Uncomment the following line to use the same main function. -->
           <meta-data android:name="android.app.arguments" android:value=""/>
