@@ -48,7 +48,7 @@ public class CoreAgentService extends QtService {
 
     public class ServiceBinder extends Binder
     {
-        CoreAgentService getServiceBinder()
+        public CoreAgentService getServiceBinder()
         {
             return CoreAgentService.this;
         }

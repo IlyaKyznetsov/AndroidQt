@@ -48,7 +48,7 @@ public class DeliveryAgentService extends QtService {
 
     public class ServiceBinder extends Binder
     {
-        DeliveryAgentService getServiceBinder()
+        public DeliveryAgentService getServiceBinder()
         {
             return DeliveryAgentService.this;
         }

@@ -1,24 +1,22 @@
 package org.qtproject.example;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
-import android.app.ActivityManager;
-import android.content.Context;
-import android.app.ActivityManager.RunningServiceInfo;
-import java.util.List;
 
-import org.qtproject.qt5.android.bindings.QtService;
 import org.qtproject.qt5.android.bindings.QtActivity;
 
-import android.util.Log;
+import java.util.List;
 
-public class LauncherActivity extends AppCompatActivity {
+
+public class LauncherActivity extends Activity {
 
     static final String TAG="qtLauncherActivity";
 

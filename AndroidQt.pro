@@ -62,7 +62,10 @@ ANDROID_JAVA_SOURCES.files = $$files($$PWD/java/$${PACKAGE}/*.java)
 INSTALLS += ANDROID_JAVA_SOURCES
 OTHER_FILES += $$ANDROID_JAVA_SOURCES.files
 
-OTHER_FILES += $$TOP_BUILD_DIR/android-build/AndroidManifest.xml
+# Builded
+OTHER_FILES += $$TOP_BUILD_DIR/android-build/AndroidManifest.xml \
+               $$TOP_BUILD_DIR/android-build/build.gradle
+OTHER_FILES += $$files($$TOP_BUILD_DIR/android-build/java/$${PACKAGE}/*.java)
 
 HEADERS += \
     Global.h
