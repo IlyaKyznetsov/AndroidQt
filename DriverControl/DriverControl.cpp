@@ -11,17 +11,11 @@ DriverControl::DriverControl()
 {
   F();
   setupUi(this);
-  connect(okButton, &QPushButton::click, this, &DriverControl::term);
-  connect(cancelButton, &QPushButton::click,  this, &DriverControl::term);
+  connect(okButton, &QPushButton::clicked, [](){F(); throw 1;});
+  connect(cancelButton, &QPushButton::clicked,  [](){F(); ::raise(SIGSEGV);});
 }
 
 DriverControl::~DriverControl()
 {
   F();
-}
-
-void DriverControl::term()
-{
-    F();
-//    throw 1;
 }

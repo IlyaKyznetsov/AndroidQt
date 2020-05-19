@@ -11,9 +11,6 @@ class DRIVERCONTROL_EXPORT DriverControl : public QDialog, private Ui::MainForm
 public:
     DriverControl();
     ~DriverControl();
-
-private Q_SLOTS:
-    void term();
 };
 
 #endif // DRIVERCONTROL_H
