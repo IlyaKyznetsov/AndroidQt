@@ -22,4 +22,12 @@
     android:text="onUnbindAgents"
     android:onClick="onUnbindAgents"/>
 
+<Button
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:text="List of Services"
+    android:onClick="onServices"/>
+
 </LinearLayout>
+

@@ -87,4 +87,14 @@ public class LauncherActivity extends Activity {
         unbindService(connectionCoreAgentService);
         unbindService(connectionDeliveryAgentService);
     }
+
+    public void onServices(View view) {
+        ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningServiceInfo> services = am.getRunningServices(Integer.MAX_VALUE);
+        for (ActivityManager.RunningServiceInfo serviceInfo : services) {
+            String serviceName = serviceInfo.service.getClassName();
+            Log.i(TAG,"qt:"+serviceName);
+         }
+        Log.i(TAG,"qt Get services size:"+services.size());
+    }
 }
