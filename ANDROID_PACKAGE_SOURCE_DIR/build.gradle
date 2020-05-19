@@ -1,60 +1,26 @@
 buildscript {
-
     repositories {
         google()
         jcenter()
-
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
-
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-
-    }
+repositories {
+    google()
+    jcenter()
 }
-
-//task clean(type: Delete) {
-//    delete rootProject.buildDir
-//}
 
 apply plugin: 'com.android.application'
 
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+}
+
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
-    ndkVersion "21.1.6352462"
-
-
-    defaultConfig {
-//            applicationId "org.qtproject.example"
-            minSdkVersion 24
-            targetSdkVersion 29
-//            versionCode 1
-//            versionName "1.0"
-
-//            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        }
-//    buildTypes {
-//        release {
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//        }
-//    }
-
-    compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
-    }
-
     /*******************************************************
      * The following variables:
      * - androidBuildToolsVersion,
@@ -68,7 +34,9 @@ android {
      * Changing them manually might break the compilation!
      *******************************************************/
 
-//    compileSdkVersion androidCompileSdkVersion.toInteger()
+    compileSdkVersion androidCompileSdkVersion.toInteger()
+
+    buildToolsVersion '28.0.3'
 
     sourceSets {
         main {
@@ -80,7 +48,7 @@ android {
             renderscript.srcDirs = ['src']
             assets.srcDirs = ['assets']
             jniLibs.srcDirs = ['libs']
-       }
+        }
     }
 
     lintOptions {
@@ -91,8 +59,10 @@ android {
     aaptOptions {
         noCompress 'rcc'
     }
-}
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    defaultConfig {
+        resConfig "en"
+        minSdkVersion = qtMinSdkVersion
+        targetSdkVersion = qtTargetSdkVersion
+    }
 }

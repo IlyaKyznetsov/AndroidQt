@@ -9,7 +9,7 @@ import android.util.Log;
 import org.qtproject.qt5.android.bindings.QtService;
 
 public class CoreAgentService extends QtService {
-    static final String TAG="CoreAgentService";
+    static final String TAG="qt_CoreAgentService";
 
     @Override
     public void onCreate() {

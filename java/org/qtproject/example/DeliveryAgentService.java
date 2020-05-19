@@ -9,7 +9,7 @@ import android.util.Log;
 import org.qtproject.qt5.android.bindings.QtService;
 
 public class DeliveryAgentService extends QtService {
-    static final String TAG="DeliveryAgentService";
+    static final String TAG="qt_DeliveryAgentService";
 
     @Override
     public void onCreate() {
