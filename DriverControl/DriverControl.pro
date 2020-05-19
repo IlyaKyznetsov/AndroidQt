@@ -32,3 +32,11 @@ unix {
     target.path = /usr/lib
 }
 !isEmpty(target.path): INSTALLS += target
+
+FORMS += \
+    MainForm.ui
+
+DISTFILES +=
+
+RESOURCES += \
+    resources.qrc

@@ -1,0 +1,17 @@
+/*Ночная*/
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+QWidget {background: rgb(50,50,50);}
+QPushButton {
+    color: rgb(255,209,35);
+    border-style: outset;
+    padding: 6px;
+    border-width: 4px;
+    border-radius: 10px;
+    border-color: beige;
+    font-weight: bold;
+/*    font-size: 20pt;*/
+}
+QPushButton:enabled {background-color: rgba(50,50,50,255);}
+QPushButton:pressed {background-color: rgb(88,163,88);}
+QPushButton:checked {background-color: rgb(88,163,88);}
+QPushButton:disabled{background-color: rgb(120,120,120);}
