@@ -5,3 +5,5 @@ SUBDIRS += \
     CoreAgent \
     DeliveryAgent \
     DriverControl
+
+#Читать https://doc.qt.io/qt-5/qandroidservice.html

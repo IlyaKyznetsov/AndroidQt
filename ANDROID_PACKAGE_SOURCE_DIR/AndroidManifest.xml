@@ -8,14 +8,10 @@
     <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="-- %%INSERT_APP_NAME%% --" android:extractNativeLibs="true">
 
 <!-- LauncherActivity -->
-    <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
-              android:name=".LauncherActivity"
+    <activity android:name=".LauncherActivity"
               android:label="-- %%INSERT_APP_NAME%% --"
-              android:screenOrientation="unspecified"
-              android:launchMode="singleTop"
               android:icon="@mipmap/ic_launcher"
-              android:roundIcon="@mipmap/ic_launcher_round"
-              android:theme="@style/AppTheme">
+              android:roundIcon="@mipmap/ic_launcher_round">
         <intent-filter>
             <action android:name="android.intent.action.MAIN"/>
             <category android:name="android.intent.category.LAUNCHER"/>
@@ -74,8 +70,8 @@
 <!-- CoreAgent QtService -->
     <service
         android:process=":core_agent"
-        android:name=".CoreAgentService"
-        android:exported="true">
+        android:isolatedProcess="true"
+        android:name=".CoreAgentService">
 
       <!-- Application arguments. Uncomment the following line to use the same main function. -->
       <meta-data android:name="android.app.arguments" android:value="core_agent"/>
@@ -119,8 +115,8 @@
 <!-- DeliveryAgent QtService -->
     <service
         android:process=":delivery_agent"
-        android:name=".DeliveryAgentService"
-        android:exported="true">
+        android:isolatedProcess="true"
+        android:name=".DeliveryAgentService">
 
       <!-- Application arguments. Uncomment the following line to use the same main function. -->
       <meta-data android:name="android.app.arguments" android:value="delivery_agent"/>
@@ -164,8 +160,7 @@
     <!--Apart  QtService -->
         <service
             android:process=":apart.kuf_agent"
-            android:name=".ApartService"
-            android:exported="true">
+            android:name=".ApartService">
 
           <!-- Application arguments. Uncomment the following line to use the same main function. -->
           <meta-data android:name="android.app.arguments" android:value=""/>
