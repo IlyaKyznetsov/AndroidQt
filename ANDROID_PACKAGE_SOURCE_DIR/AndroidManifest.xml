@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <manifest package="org.qtproject.example" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="-- %%INSERT_VERSION_NAME%% --" android:versionCode="-- %%INSERT_VERSION_CODE%% --" android:installLocation="auto">
 
-    <!-- move to build.gradle -->
-    <!--<uses-sdk android:minSdkVersion="24" android:targetSdkVersion="29"/>-->
+    <!-- move to build.gradle in Qt 5.15 -->
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="29"/>
 
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 
@@ -25,12 +25,12 @@
     </activity>
 
 <!-- DriverControl QtActivity -->
-    <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
-              android:name=".DriverControl"
-              android:label="DriverControl"
-              android:screenOrientation="unspecified"
-              android:launchMode="singleTop">
-
+<activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
+          android:name=".DriverControl"
+          android:label="DriverControl"
+          android:screenOrientation="unspecified"
+          android:launchMode="singleTop"
+          android:process=":driver_control">
         <meta-data android:name="android.app.arguments" android:value="driver_control"/>
 
         <meta-data android:name="android.app.lib_name" android:value="DriverControl"/>

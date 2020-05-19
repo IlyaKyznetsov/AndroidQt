@@ -37,19 +37,15 @@ public class LauncherActivity extends Activity {
         {
 //            bindService(new Intent(this, CoreAgentService.class), coreAgentServiceConnection, Context.BIND_AUTO_CREATE);
 //            bindService(new Intent(this, DeliveryAgentService.class), deliveryAgentServiceConnection, Context.BIND_AUTO_CREATE);
-
-            Intent intent = new Intent(this, DriverControl.class);
-            intent.putExtra("START",true);
-            startActivity(intent);
         }
         else
         {
 //            unbindService(coreAgentServiceConnection);
 //            unbindService(deliveryAgentServiceConnection);
 
-            Intent intent = new Intent(this, DriverControl.class);
-            intent.putExtra("STOP",false);
-            startActivity(intent);
+//            Intent intent = new Intent(this, DriverControl.class);
+//            intent.putExtra("STOP",false);
+//            startActivity(intent);
 
         }
     }
@@ -71,5 +67,11 @@ public class LauncherActivity extends Activity {
             Log.i(TAG,"qt:"+serviceName);
          }
         Log.i(TAG,"qt Get services size:"+services.size());
+    }
+
+    public void onStartDriverControl(View view) {
+        Intent intent = new Intent(this, DriverControl.class);
+//            intent.putExtra("START",true);
+        startActivity(intent);
     }
 }

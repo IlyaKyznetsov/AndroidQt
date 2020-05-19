@@ -20,20 +20,8 @@ DriverControl::~DriverControl()
   F();
 }
 
-void DriverControl::showEvent(QShowEvent *event)
-{
-  DF(event);
-  QDialog::showEvent(event);
-}
-
-void DriverControl::hideEvent(QHideEvent *event)
-{
-  DF(event);
-  QDialog::hideEvent(event);
-}
-
 void DriverControl::term()
 {
     F();
-    throw 1;
+//    throw 1;
 }

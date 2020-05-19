@@ -12,11 +12,6 @@ public:
     DriverControl();
     ~DriverControl();
 
-    // QWidget interface
-protected:
-    virtual void showEvent(QShowEvent *event) override;
-    virtual void hideEvent(QHideEvent *event) override;
-
 private Q_SLOTS:
     void term();
 };
