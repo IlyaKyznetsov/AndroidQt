@@ -29,15 +29,7 @@
               android:name=".DriverControl"
               android:label="DriverControl"
               android:screenOrientation="unspecified"
-              android:launchMode="singleTop"
-              android:isolatedProcess="true"
-              android:process=":driver_control">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <!--category android:name="android.intent.category.LAUNCHER"/-->
-            <category android:name="android.intent.category.HOME"/>
-            <category android:name="android.intent.category.DEFAULT"/>
-        </intent-filter>
+              android:launchMode="singleTop">
 
         <meta-data android:name="android.app.arguments" android:value="driver_control"/>
 

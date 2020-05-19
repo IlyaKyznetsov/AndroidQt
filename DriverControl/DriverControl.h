@@ -16,6 +16,9 @@ public:
 protected:
     virtual void showEvent(QShowEvent *event) override;
     virtual void hideEvent(QHideEvent *event) override;
+
+private Q_SLOTS:
+    void term();
 };
 
 #endif // DRIVERCONTROL_H
