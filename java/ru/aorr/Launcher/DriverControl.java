@@ -1,4 +1,4 @@
-package org.qtproject.example;
+package ru.aorr.Launcher;
 
 import android.os.Bundle;
 import android.util.Log;

@@ -1,4 +1,4 @@
-package org.qtproject.example;
+package ru.aorr.Launcher;
 
 // https://doc-snapshots.qt.io/qt5-5.15/android-services.html
 import android.content.Intent;
@@ -8,8 +8,8 @@ import android.util.Log;
 
 import org.qtproject.qt5.android.bindings.QtService;
 
-public class CoreAgentService extends QtService {
-    static final String TAG="qt_CoreAgentService";
+public class DeliveryAgentService extends QtService {
+    static final String TAG="qt_DeliveryAgentService";
 
     @Override
     public void onCreate() {
@@ -23,15 +23,10 @@ public class CoreAgentService extends QtService {
         Log.i(TAG, "onDestroy()");
     }
 
-    IBinder _binder;
     @Override
     public IBinder onBind(Intent intent) {
         Log.i(TAG, "onBind(Intent)");
-//        return super.onBind(intent);
-        IBinder binder = super.onBind(intent);
-        if(null != binder)
-            _binder=binder;
-        return _binder;
+        return super.onBind(intent);
     }
 
     @Override
@@ -53,9 +48,10 @@ public class CoreAgentService extends QtService {
 
     public class ServiceBinder extends Binder
     {
-        public CoreAgentService getServiceBinder()
+        public DeliveryAgentService getServiceBinder()
         {
-            return CoreAgentService.this;
+            return DeliveryAgentService.this;
         }
     }
+    private final IBinder binder = new ServiceBinder();
 }
