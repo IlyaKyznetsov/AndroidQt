@@ -1,17 +1,47 @@
-/*Ночная*/
-/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-QWidget {background: rgb(50,50,50);}
-QPushButton {
+QWidget {
+    background: rgb(50,50,50);
+    font-size: 16pt;
     color: rgb(255,209,35);
-    border-style: outset;
-    padding: 6px;
-    border-width: 4px;
-    border-radius: 10px;
-    border-color: beige;
-    font-weight: bold;
-/*    font-size: 20pt;*/
+    font-weight: normal;
 }
-QPushButton:enabled {background-color: rgba(50,50,50,255);}
-QPushButton:pressed {background-color: rgb(88,163,88);}
-QPushButton:checked {background-color: rgb(88,163,88);}
-QPushButton:disabled{background-color: rgb(120,120,120);}
+
+QLabel, QLineEdit, QGroupBox, QPushButton, QTableWidget{background-color: rgba(0,0,0,0);}
+QLabel, QTextEdit{border-style: none;}
+/*
+QGroupBox {
+    border-radius: 5px;
+    border: 2px solid gray;
+    margin-top: 20px;
+    padding-top: 40px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+}
+*/
+
+QLabel {
+    min-height: 48px;
+    max-height: 32px;
+}
+
+PushButton:enabled {background-color: rgb(35,78,120)}
+PushButton:pressed {background-color: rgb(0,120,0)}
+PushButton:checked {background-color: rgb(0,120,0)}
+PushButton:disabled{background-color: rgb(100,100,100);}
+
+PushButton:enabled[warning=true]{background-color: qlineargradient(x1: 0, y1: 0.5, x2: 0, y2: 1, stop: 0 rgb(35,78,120),   stop: 1 rgb(255,209,35));}
+PushButton:pressed[warning=true]{background-color: qlineargradient(x1: 0, y1: 0.5, x2: 0, y2: 1, stop: 0 rgb(0,120,0),     stop: 1 rgb(255,209,35));}
+PushButton:checked[warning=true]{background-color: qlineargradient(x1: 0, y1: 0.5, x2: 0, y2: 1, stop: 0 rgb(0,120,0),     stop: 1 rgb(255,209,35));}
+PushButton:disabled[warning=true]{background-color:qlineargradient(x1: 0, y1: 0.5, x2: 0, y2: 1, stop: 0 rgb(100,100,100), stop: 1 rgb(255,209,35));}
+
+PushButton:enabled[error=true]{background-color: qlineargradient(x1: 0, y1: 0.5, x2: 0, y2: 1, stop: 0 rgb(35,78,120),   stop: 1 rgb(255,41,35));}
+PushButton:pressed[error=true]{background-color: qlineargradient(x1: 0, y1: 0.5, x2: 0, y2: 1, stop: 0 rgb(0,120,0),     stop: 1 rgb(255,41,35));}
+PushButton:checked[error=true]{background-color: qlineargradient(x1: 0, y1: 0.5, x2: 0, y2: 1, stop: 0 rgb(0,120,0),     stop: 1 rgb(255,41,35));}
+PushButton:disabled[error=true]{background-color: qlineargradient(x1: 0, y1: 0.5, x2: 0, y2: 1, stop: 0 rgb(100,100,100), stop: 1 rgb(255,41,35));}
+
+PushButton QLabel#shortHint:enabled{color: rgb(50,200,50);}
+PushButton QLabel#text:enabled{color: rgb(255,209,35);}
+PushButton QLabel#shortHint:disabled{color: rgb(50,50,50);}
+PushButton QLabel#text:disabled{color: rgb(50,50,50);}

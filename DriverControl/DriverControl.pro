@@ -21,11 +21,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     DriverControl.cpp \
+    PushButton.cpp \
     main.cpp
 
 HEADERS += \
     DriverControl_global.h \
-    DriverControl.h
+    DriverControl.h \
+    PushButton.h
 
 # Default rules for deployment.
 unix {
