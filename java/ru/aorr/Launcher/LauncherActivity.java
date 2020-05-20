@@ -152,9 +152,9 @@ public class LauncherActivity extends Activity {
 
     public void onStartDriverControl(View view) {
 //        Intent intent = new Intent(this, DriverControl.class);
-        Intent intent = new Intent(this, ActivityMessenger.class);
+//        Intent intent = new Intent(this, ActivityMessenger.class);
 //            intent.putExtra("START",true);
-        startActivity(intent);
+//        startActivity(intent);
     }
 
 

@@ -18,7 +18,6 @@ public:
 #endif
 
   virtual ~CoreAgent();
-  virtual QAndroidBinder *onBind(const QAndroidIntent &intent);
 };
 
 #endif // COREAGENT_H

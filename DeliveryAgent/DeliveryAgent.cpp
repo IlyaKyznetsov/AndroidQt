@@ -29,11 +29,3 @@ DeliveryAgent::~DeliveryAgent()
 {
   F();
 }
-
-QAndroidBinder *DeliveryAgent::onBind(const QAndroidIntent &intent)
-{
-    F();
-    QAndroidBinder* binder=QAndroidService::onBind(intent);
-//  DF(intent.handle().toString());
-    return binder;
-}

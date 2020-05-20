@@ -18,7 +18,6 @@ public:
 #endif
 
   virtual ~DeliveryAgent();
-  virtual QAndroidBinder *onBind(const QAndroidIntent &intent);
 };
 
 #endif // DELIVERYAGENT_H

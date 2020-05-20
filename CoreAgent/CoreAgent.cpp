@@ -9,14 +9,12 @@
 CoreAgent::CoreAgent(int &argc, char **argv, int flags) : QAndroidService(argc, argv, flags)
 {
   DF(argc);
-//   throw 1;
 }
 CoreAgent::CoreAgent(int &argc, char **argv,
                      const std::function<QAndroidBinder *(const QAndroidIntent &intent)> &binder, int flags)
     : QAndroidService(argc, argv, binder, flags)
 {
   DF(argc);
-//   throw 1;
 }
 #else
 CoreAgent(int &argc, char **argv);
@@ -26,12 +24,4 @@ CoreAgent(int &argc, char **argv, const std::function<QAndroidBinder *(const QAn
 CoreAgent::~CoreAgent()
 {
   F();
-}
-
-QAndroidBinder *CoreAgent::onBind(const QAndroidIntent &intent)
-{
-    F();
-    QAndroidBinder* binder=QAndroidService::onBind(intent);
-//  DF(intent.handle().toString());
-    return binder;
 }
