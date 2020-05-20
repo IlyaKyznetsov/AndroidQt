@@ -157,6 +157,8 @@
       <!-- Background running -->
     </service>
 
+    <service android:name=".MessengerService" android:enabled="true" android:exported="false"/>
+
     </application>
 
 </manifest>

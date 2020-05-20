@@ -12,7 +12,7 @@
 DeliveryAgent::DeliveryAgent(int &argc, char **argv, int flags) : QAndroidService(argc, argv, flags)
 {
   DF(argc);
-  raise(SIGSEGV);
+//   raise(SIGSEGV);
 }
 DeliveryAgent::DeliveryAgent(int &argc, char **argv,
                      const std::function<QAndroidBinder *(const QAndroidIntent &intent)> &binder, int flags)
