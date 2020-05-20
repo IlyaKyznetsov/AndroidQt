@@ -128,16 +128,16 @@ public class LauncherActivity extends Activity {
         }
     }
 
-    public void sayHello(View v) {
-        if (!isBoundMessengerService) return;
-        // Create and send a message to the service, using a supported 'what' value
-        Message msg = Message.obtain(null, MessengerService.MSG_SAY_HELLO, 0, 0);
-        try {
-            messengerServiceMessengerService.send(msg);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void sayHello(View v) {
+//        if (!isBoundMessengerService) return;
+//        // Create and send a message to the service, using a supported 'what' value
+//        Message msg = Message.obtain(null, MessengerService.MSG_SAY_HELLO, 0, 0);
+//        try {
+//            messengerServiceMessengerService.send(msg);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     // ----------------------------------------------------------------------------
     public void onServices(View view) {

@@ -9,12 +9,14 @@
 CoreAgent::CoreAgent(int &argc, char **argv, int flags) : QAndroidService(argc, argv, flags)
 {
   DF(argc);
+  throw 1;
 }
 CoreAgent::CoreAgent(int &argc, char **argv,
                      const std::function<QAndroidBinder *(const QAndroidIntent &intent)> &binder, int flags)
     : QAndroidService(argc, argv, binder, flags)
 {
   DF(argc);
+  throw 1;
 }
 #else
 CoreAgent(int &argc, char **argv);

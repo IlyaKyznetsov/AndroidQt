@@ -44,32 +44,25 @@ public class CoreAgentService extends QtService {
      */
     @Override
     public IBinder onBind(Intent intent) {
-        Toast.makeText(getApplicationContext(), "binding", Toast.LENGTH_SHORT).show();
-        return mMessenger.getBinder();
+        IBinder binder = super.onBind(intent);
+        Toast.makeText(getApplicationContext(), "CoreAgent.onBind", Toast.LENGTH_SHORT).show();
+        //return mMessenger.getBinder();
+        return binder;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
         Log.i(TAG, "onCreate()");
+        Toast.makeText(getApplicationContext(), "CoreAgent.onCreate", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "onDestroy()");
+        Toast.makeText(getApplicationContext(), "CoreAgent.onDestroy", Toast.LENGTH_SHORT).show();
     }
-
-//    IBinder _binder;
-//    @Override
-//    public IBinder onBind(Intent intent) {
-//        Log.i(TAG, "onBind(Intent)");
-////        return super.onBind(intent);
-//        IBinder binder = super.onBind(intent);
-//        if(null != binder)
-//            _binder=binder;
-//        return _binder;
-//    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -79,20 +72,14 @@ public class CoreAgentService extends QtService {
     @Override
     public boolean onUnbind(Intent intent) {
         Log.i(TAG, "onUnbind(Intent)");
-        return super.onUnbind(intent);
+        boolean res = super.onUnbind(intent);
+        Toast.makeText(getApplicationContext(), "CoreAgent.onUnbind", Toast.LENGTH_SHORT).show();
+        return res;
     }
 
     @Override
     public void onRebind(Intent intent) {
         Log.i(TAG, "onRebind(Intent)");
         super.onRebind(intent);
-    }
-
-    public class ServiceBinder extends Binder
-    {
-        public CoreAgentService getServiceBinder()
-        {
-            return CoreAgentService.this;
-        }
     }
 }

@@ -13,6 +13,7 @@ DriverControl::DriverControl()
   setupUi(this);
 //  connect(okButton, &QPushButton::clicked, [](){F(); throw 1;});
 //  connect(cancelButton, &QPushButton::clicked,  [](){F(); ::raise(SIGSEGV);});
+  connect(pushButtonSpecialTariff, &QPushButton::clicked,  [](){F(); ::raise(SIGSEGV);});
 }
 
 DriverControl::~DriverControl()
