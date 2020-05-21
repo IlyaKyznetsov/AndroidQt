@@ -69,9 +69,11 @@
 
 <!-- CoreAgent QtService -->
     <service
-        android:process=":core_agent"
-        android:isolatedProcess="true"
+        android:process=":core_agent_"
+
         android:name=".CoreAgentService">
+<!-- android:isolatedProcess="true" -->
+<!-- https://docs.microsoft.com/ru-ru/xamarin/android/app-fundamentals/services/out-of-process-services -->
 
       <!-- Application arguments. Uncomment the following line to use the same main function. -->
       <meta-data android:name="android.app.arguments" android:value="core_agent"/>
