@@ -12,15 +12,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:text="startActivity"
-    android:onClick="onStartDriverControl"/>
+    android:text="Services Bind"
+    android:onClick="onServicesBind"/>
 
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:text="Services Bind"
-    android:onClick="onServicesBind"/>
+    android:text="Services Unbind"
+    android:onClick="onServicesUnbind"/>
 
 <Button
     android:layout_width="wrap_content"
