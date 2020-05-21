@@ -38,7 +38,6 @@ public class LauncherActivity extends Activity {
     private boolean deliveryAgentServiceBound = false;
 
     // Связывание с службой
-    /*
     private ServiceConnection connectionCoreAgentService = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
@@ -58,7 +57,6 @@ public class LauncherActivity extends Activity {
             coreAgentServiceBound = false;
         }
     };
-*/
 
     private ServiceConnection connectionDeliveryAgentService = new ServiceConnection() {
         @Override
@@ -78,23 +76,16 @@ public class LauncherActivity extends Activity {
     };
 
     public void onBindAgents(View view) {
+        Intent intentCoreAgentService = new Intent(this, CoreAgentService.class);
+        bindService(intentCoreAgentService, connectionCoreAgentService, Context.BIND_AUTO_CREATE);
 
-        Log.i(TAG,"onStartCoreAgent");
-        Intent intent = new Intent(this, CoreAgentService.class);
-        startService(intent);
-
-
-//        Intent intentCoreAgentService = new Intent(this, CoreAgentService.class);
-//        bindService(intentCoreAgentService, connectionCoreAgentService, Context.BIND_AUTO_CREATE);
-//        Log.i(TAG," onBindAgents CoreAgentService");
-
-//        Intent intentDeliveryAgentService = new Intent(this, DeliveryAgentService.class);
-//        bindService(intentDeliveryAgentService, connectionDeliveryAgentService, Context.BIND_AUTO_CREATE);
+        Intent intentDeliveryAgentService = new Intent(this, DeliveryAgentService.class);
+        bindService(intentDeliveryAgentService, connectionDeliveryAgentService, Context.BIND_AUTO_CREATE);
     }
 
     public void onUnbindAgents(View view) {
- //       unbindService(connectionCoreAgentService);
-//        unbindService(connectionDeliveryAgentService);
+        unbindService(connectionCoreAgentService);
+        unbindService(connectionDeliveryAgentService);
     }
 
     public void onServices(View view) {

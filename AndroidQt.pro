@@ -74,6 +74,3 @@ SOURCES += \
     Global.cpp \
     main.cpp
 }
-
-DISTFILES += \
-    ReadMe.txt
