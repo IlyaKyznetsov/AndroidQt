@@ -2,56 +2,45 @@ package ru.aorr.Launcher;
 
 // https://doc-snapshots.qt.io/qt5-5.15/android-services.html
 import android.content.Intent;
-import android.os.Binder;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.qtproject.qt5.android.bindings.QtService;
 
 public class DeliveryAgentService extends QtService {
-    static final String TAG="qt_DeliveryAgentService";
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.i(TAG, "onCreate()");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, "onDestroy()");
+    static final String TAG="ru.aorr.Launcher.DeliveryService";
+    final Messenger messenger = new Messenger(new IncomingHandler());
+    private final void logging(String message, boolean isNotification)
+    {
+        Log.w(TAG,message);
+        if(isNotification) {
+            Toast.makeText(getApplicationContext(), TAG+" : "+message, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        Log.i(TAG, "onBind(Intent)");
-        return super.onBind(intent);
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent, flags, startId);
+        super.onBind(intent);
+        logging("onBind("+intent.toString()+")", true);
+        return messenger.getBinder();
     }
 
     @Override
     public boolean onUnbind(Intent intent) {
-        Log.i(TAG, "onUnbind(Intent)");
+        logging("onUnbind("+intent.toString()+")", false);
         return super.onUnbind(intent);
     }
 
-    @Override
-    public void onRebind(Intent intent) {
-        Log.i(TAG, "onRebind(Intent)");
-        super.onRebind(intent);
-    }
-
-    public class ServiceBinder extends Binder
-    {
-        public DeliveryAgentService getServiceBinder()
-        {
-            return DeliveryAgentService.this;
+    // -------------------------------------------------------------------------
+    /** Обработчик сообщений отправленных сервису */
+    class IncomingHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
         }
     }
-    private final IBinder binder = new ServiceBinder();
 }

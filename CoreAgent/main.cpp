@@ -1,9 +1,9 @@
-#include <QDebug>
-#include <CoreAgent.h>
+#include <Global.h>
+#include <QAndroidService>
 
 int main(int argc, char *argv[])
 {
-    CoreAgent app(argc,argv);
-    qWarning()<<"++++++++ CoreAgent ++++++++";
-    return app.exec();
+  QAndroidService app(argc, argv);
+  DF("++++++++ QAndroidService CoreAgent ++++++++");
+  return app.exec();
 }

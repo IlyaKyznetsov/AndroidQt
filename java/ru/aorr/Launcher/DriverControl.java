@@ -2,46 +2,52 @@ package ru.aorr.Launcher;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 
 public class DriverControl extends QtActivity {
-
-    static final String TAG="qt_DriverControl";
+    static final String TAG = "ru.aorr.Launcher.DriverControl";
+    private final void logging(String message, boolean isNotification) {
+        Log.w(TAG, message);
+        if (isNotification) {
+            Toast.makeText(getApplicationContext(), TAG + " : " + message, Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        logging("onCreate()", true);
         super.onCreate(savedInstanceState);
-        Log.i(TAG, "onCreate()");
     }
 
     @Override
     protected void onStart() {
+        logging("onStart()", true);
         super.onStart();
-        Log.i(TAG, "onStart()");
     }
 
     @Override
     protected void onResume() {
+        logging( "onResume()", true);
         super.onResume();
-        Log.i(TAG, "onResume()");
     }
 
     @Override
     protected void onPause() {
+        logging( "onPause()", true);
         super.onPause();
-        Log.i(TAG, "onPause()");
     }
 
     @Override
     protected void onStop() {
+        logging( "onStop()", true);
         super.onStop();
-        Log.i(TAG, "onStop()");
     }
 
     @Override
     protected void onDestroy() {
+        logging("onDestroy()", false);
         super.onDestroy();
-        Log.i(TAG, "onDestroy()");
     }
 }

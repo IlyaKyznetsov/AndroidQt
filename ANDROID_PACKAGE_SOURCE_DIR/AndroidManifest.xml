@@ -68,9 +68,8 @@
     <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->
 
 <!-- CoreAgent QtService -->
-    <service
-        android:process=":core_agent"
-        android:name=".CoreAgentService">
+    <service android:name=".CoreAgentService"
+        android:process=":core_agent">
 
       <!-- Application arguments. Uncomment the following line to use the same main function. -->
       <meta-data android:name="android.app.arguments" android:value="core_agent"/>
@@ -112,9 +111,8 @@
     </service>
 
 <!-- DeliveryAgent QtService -->
-    <service
-        android:process=":delivery_agent"
-        android:name=".DeliveryAgentService">
+    <service android:name=".DeliveryAgentService"
+        android:process=":delivery_agent">
 
       <!-- Application arguments. Uncomment the following line to use the same main function. -->
       <meta-data android:name="android.app.arguments" android:value="delivery_agent"/>
@@ -154,11 +152,6 @@
       <meta-data android:name="android.app.background_running" android:value="true"/>
       <!-- Background running -->
     </service>
-
-    <service android:name=".MessengerService"
-        android:enabled="true"
-        android:exported="true"
-        android:process=":messenger_service" />
 
     </application>
 
