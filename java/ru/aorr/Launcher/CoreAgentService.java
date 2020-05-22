@@ -8,18 +8,34 @@ import android.os.Message;
 import android.os.Messenger;
 import android.util.Log;
 import android.widget.Toast;
+import android.app.Notification;
 
 import org.qtproject.qt5.android.bindings.QtService;
 
 public class CoreAgentService extends QtService {
     static final String TAG="ru.aorr.Launcher.CoreAgentService";
     final Messenger messenger = new Messenger(new IncomingHandler());
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //https://habr.com/ru/post/265159/
+        Notification.Builder builder = new Notification.Builder(this).setSmallIcon(R.drawable.ic_launcher_round);
+        Notification notification;
+         notification = builder.build();
+        startForeground(777, notification);
+}
+
     private final void logging(String message, boolean isNotification)
     {
         Log.w(TAG,message);
         if(isNotification) {
-            Toast.makeText(getApplicationContext(), TAG+" : "+message, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), TAG+" qt: "+message, Toast.LENGTH_SHORT).show();
         }
+    }
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        logging("Service: onStartCommand",true);
+        return START_STICKY;
     }
 
     @Override
