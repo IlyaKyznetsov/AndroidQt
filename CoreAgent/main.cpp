@@ -10,7 +10,7 @@ static void signal_handler(int signal)
   qDebug() << "qt signal_handler :" << signal;
   /* Exit the application */
 
-  exit(0);
+  exit(signal);
 }
 
 class Application : public QAndroidService
