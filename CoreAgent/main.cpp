@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 
   static QString TAG = "qt_LauncherActivity";
   QThread thread;
-  int zz = 1;
+  int zz = 0;
   qInfo() << "QQuickViewer setup completed  qt -----------------------------++++++++";
 
   QObject::connect(&thread, &QThread::started, [&]() {
@@ -81,9 +81,10 @@ int main(int argc, char *argv[])
     thread.quit();
     result += thread.wait();
     qDebug() << "qt ++++++++ QUIT CoreAgent ++++++++++++++++";
-    app.quit();
-    ::raise(SIGSEGV);
-    throw SIGSEGV;
+    //app.quit();
+    //    ::raise(SIGSEGV);
+    //    throw SIGSEGV;
+    exit(0);
     return result;
   }
   catch (...)
