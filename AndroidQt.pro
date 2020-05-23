@@ -53,7 +53,9 @@ OTHER_FILES += \
     $$ANDROID_PACKAGE_SOURCE_DIR/res/values/strings.xml \
     $$ANDROID_PACKAGE_SOURCE_DIR/res/values/styles.xml \
     $$ANDROID_PACKAGE_SOURCE_DIR/res/drawable \
-    $$ANDROID_PACKAGE_SOURCE_DIR/res/drawable/ic_launcher_background.xml
+    $$ANDROID_PACKAGE_SOURCE_DIR/res/drawable/ic_launcher_background.xml \
+    $$ANDROID_PACKAGE_SOURCE_DIR/res/drawable/ic_launcher_round.png
+
 
 PACKAGE=ru/aorr/Launcher
 # On Linux ##########################################################

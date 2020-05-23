@@ -21,7 +21,7 @@ public class LauncherActivity extends Activity {
     private final void logging(String message, boolean isNotification) {
         Log.w(TAG, message);
         if (isNotification) {
-            Toast.makeText(getApplicationContext(), TAG + " : " + message, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), TAG + " qt: " + message, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -51,6 +51,8 @@ public class LauncherActivity extends Activity {
             // unexpectedly disconnected -- that is, its process crashed.
             messengerCoreAgentService = null;
             isBoundCoreAgentService = false;
+
+            servicesBind();
         }
     };
     private ServiceConnection deliveryAgentServiceConnection = new ServiceConnection() {
@@ -79,10 +81,24 @@ public class LauncherActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
         Log.i(TAG, "onCreate(Bundle savedInstanceState)");
+
+
+             Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+                 @Override
+                 public void uncaughtException(Thread paramThread, Throwable paramThrowable) {
+                     logging("uncaughtException--=-=-=--=-=-=-=-=-=-=-=-=-=", true);
+                     Log.e("qt Alert","Lets See if it Works !!!");
+                 }
+             });
+
+
     }
+
+
 
     private void servicesBind() {
         logging("servicesBind", true);
+//        int a=10/0;
 
         bindService(new Intent(this, CoreAgentService.class), coreAgentServiceConnection,
                 Context.BIND_AUTO_CREATE);
@@ -113,7 +129,12 @@ public class LauncherActivity extends Activity {
     protected void onStop() {
         super.onStop();
     }
-
+    @Override
+    protected void onDestroy() {
+            super.onDestroy();
+            Log.i("Test", "Activity: onDestroy");
+            logging("Activity: onDestroy", true);
+    }
     //    public void sayHello(View v) {
     //        if (!isBoundMessengerService) return;
     //        // Create and send a message to the service, using a supported 'what' value

@@ -18,11 +18,22 @@ public class CoreAgentService extends QtService {
     @Override
     public void onCreate() {
         super.onCreate();
+        logging("Service: onCreate " ,false);
         //https://habr.com/ru/post/265159/
         Notification.Builder builder = new Notification.Builder(this).setSmallIcon(R.drawable.ic_launcher_round);
         Notification notification;
          notification = builder.build();
         startForeground(777, notification);
+
+
+             Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+                 @Override
+                 public void uncaughtException(Thread paramThread, Throwable paramThrowable) {
+                     logging("uncaughtException--=-=-=--=-=-=-=-=-=-=-=-=-=", true);
+                     Log.e("qt Alert","Lets See if it Works !!!");
+                 }
+             });
+
 }
 
     private final void logging(String message, boolean isNotification)
@@ -34,7 +45,7 @@ public class CoreAgentService extends QtService {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        logging("Service: onStartCommand",true);
+        logging("Service: onStartCommand START_STICKY" ,true);
         return START_STICKY;
     }
 
